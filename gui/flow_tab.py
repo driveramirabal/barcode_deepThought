@@ -54,15 +54,16 @@ def create_flow_frame(parent, config: BarcodeConfigGUI):
     nm_pixel_spin.grid(row=row_f, column=1, padx=5, pady=5)
     row_f += 1
 
-    tk.Label(frame, text="Frame Interval [1–1000]:").grid(
+    tk.Label(frame, text="Frame Interval [0.01–1000]:").grid(
         row=row_f, column=0, sticky="w", padx=5, pady=5
     )
     frame_interval_spin = ttk.Spinbox(
         frame,
-        from_=1,
+        from_=0.01,
         to=10**3,
-        increment=1,
+        increment=0.01,
         textvariable=co.frame_interval_s,
+        format="%.1f",
         width=7,
     )
     frame_interval_spin.grid(row=row_f, column=1, padx=5, pady=5)
